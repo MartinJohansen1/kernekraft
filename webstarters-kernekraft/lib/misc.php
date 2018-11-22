@@ -120,4 +120,11 @@ function ws_excerpt($limit, $excerpt = null) {
     return '<p>' . wp_strip_all_tags($excerpt) . '</p>';
 }
 
+//Sørger for at man kan uploade svg filer til WordPress
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 ?>
